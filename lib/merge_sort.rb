@@ -8,8 +8,7 @@ class MergeSort
   # TODO: asc, desc option
   sig { params(array: T::Array[Integer]).returns(T::Array[Integer]) }
   def sort(array)
-    left, right = split(array)
-    merge(left, right)
+    merge_sort(*split(array))
   end
 
   private
@@ -23,8 +22,8 @@ class MergeSort
 
   sig { params(array: T::Array[Integer]).returns([T::Array[Integer], T::Array[Integer]])}
   def split(array)
-    left = T.must(array[0..(array.size/2)])
-    right = T.must(array[(array.size/2)+1..(array.size)])
+    left = T.must(array[0..(array.size/2)-1])
+    right = T.must(array[(array.size/2)..(array.size)])
     [left, right]
   end
 
