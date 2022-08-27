@@ -1,3 +1,5 @@
+# typed: ignore
+
 require "minitest/autorun"
 require "merge_sort"
 
