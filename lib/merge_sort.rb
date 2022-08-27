@@ -1,4 +1,5 @@
 # typed: strict
+
 require "sorbet-runtime"
 
 # merge sort
@@ -20,10 +21,10 @@ class MergeSort
     merge(left, right)
   end
 
-  sig { params(array: T::Array[Integer]).returns([T::Array[Integer], T::Array[Integer]])}
+  sig { params(array: T::Array[Integer]).returns([T::Array[Integer], T::Array[Integer]]) }
   def split(array)
-    left = T.must(array[0..(array.size/2)-1])
-    right = T.must(array[(array.size/2)..(array.size)])
+    left = T.must(array[0..(array.size / 2) - 1])
+    right = T.must(array[(array.size / 2)..(array.size)])
     [left, right]
   end
 

@@ -5,7 +5,7 @@ require "merge_sort"
 
 class TestMergeSort < Minitest::Test
   def test_sort
-    array = [5,4,3,2,1]
+    array = [5, 4, 3, 2, 1]
     sorted = MergeSort.new.sort(array)
 
     assert_equal(array.sort, sorted)
@@ -19,9 +19,9 @@ class TestMergeSort < Minitest::Test
       end
     end
 
-    array = [5,4,3,2,1]
+    array = [5, 4, 3, 2, 1]
     splited = merge_sort_obj.temp_split(array)
 
-    assert_equal([[5,4],[3,2,1]], splited)
+    assert_equal([[5, 4], [3, 2, 1]], splited)
   end
 end
