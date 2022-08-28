@@ -16,6 +16,10 @@ jobs:
         with:
           ruby-version: '${{ steps.ruby-version.outputs.VERSION }}'
           bundler-cache: true
+      - name: bugfix1
+        run: ruby -e "p require 'sorbet-runtime'"
+      - name: bugfix2
+        run: bundle exec ruby -e "p require 'sorbet-runtime'"
       - name: Run minitest
         run: rake test
 
