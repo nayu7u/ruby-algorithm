@@ -1,0 +1,37 @@
+name: "Ruby Minitest CI"
+on:
+  - push
+  - pull_request
+jobs:
+  minitest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Detect ruby version
+        id: ruby-version
+        run: echo "::set-output name=VERSION::$(cat .ruby-version)"
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '${{ steps.ruby-version.outputs.VERSION }}'
+          bundler-cache: true
+      - name: Run minitest
+        run: ruby -I lib test/*
+
+  sorbet-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Detect ruby version
+        id: ruby-version
+        run: echo "::set-output name=VERSION::$(cat .ruby-version)"
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '${{ steps.ruby-version.outputs.VERSION }}'
+          bundler-cache: true
+      - name: Run sorbet typecheck
+        run: bundle exec srb tc
+
