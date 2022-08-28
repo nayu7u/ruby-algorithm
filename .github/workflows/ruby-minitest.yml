@@ -15,14 +15,8 @@ jobs:
         with:
           ruby-version: '${{ steps.ruby-version.outputs.VERSION }}'
           bundler-cache: true
-      - name: bugfix1
-        run: ruby -e "p require 'sorbet-runtime'"
-        if: ${{ always() }}
-      - name: bugfix2
-        run: bundle exec ruby -e "p require 'sorbet-runtime'"
-        if: ${{ always() }}
       - name: Run minitest
-        run: rake test
+        run: bundle exec rake test
 
   sorbet-typecheck:
     runs-on: ubuntu-latest
