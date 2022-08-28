@@ -18,8 +18,10 @@ jobs:
           bundler-cache: true
       - name: bugfix1
         run: ruby -e "p require 'sorbet-runtime'"
+        if: ${{ always() }}
       - name: bugfix2
         run: bundle exec ruby -e "p require 'sorbet-runtime'"
+        if: ${{ always() }}
       - name: Run minitest
         run: rake test
 
