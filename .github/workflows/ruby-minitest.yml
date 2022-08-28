@@ -1,7 +1,6 @@
 name: "Ruby Minitest CI"
 on:
   - push
-  - pull_request
 jobs:
   minitest:
     runs-on: ubuntu-latest
