@@ -41,7 +41,7 @@ GEM
     ruby-progressbar (1.11.0)
     sorbet (0.5.10687)
       sorbet-static (= 0.5.10687)
-    sorbet-runtime (0.5.10687)
+    sorbet-runtime (0.5.10712)
     sorbet-static (0.5.10687-x86_64-linux)
     spoom (1.1.15)
       sorbet (>= 0.5.10187)
